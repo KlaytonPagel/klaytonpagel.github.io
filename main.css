@@ -1,0 +1,6 @@
+#header {font-size: 40px}
+#vorpalButton {transition-duration: 500ms; height: 50px; width: 100px; border-radius: 25%}
+#testButton {transition-duration: 500ms; height: 50px; width: 100px; border-radius: 25%}
+
+#vorpalButton:hover {background: #4a0e97; color: #f5f6f7}
+#testButton:hover {background: #970e19; color: #f5f6f7}
