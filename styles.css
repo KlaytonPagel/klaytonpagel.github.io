@@ -32,9 +32,9 @@ p.displayName {font-size: 50px; color: chocolate}
 #wood {background-image: url('images/wood.png');}
 #stone {background-image: url('images/stone.png');}
 
-#grass:hover {background-image: none;}
+#grass:hover {background-image: url("images/blank.png");}
 #grass:hover > .minecraftGrass {display: block;}
-#wood:hover {background-image: none;}
+#wood:hover {background-image: url("images/blank.png");}
 #wood:hover > .minecraftWood {display: block;}
-#stone:hover {background-image: none;}
+#stone:hover {background-image: url("images/blank.png");}
 #stone:hover > .minecraftStone {display: block;}
