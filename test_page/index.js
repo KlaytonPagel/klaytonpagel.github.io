@@ -23,6 +23,7 @@ stoneButton.onclick = function () {window.open('https://store.kowantify.com/chec
 
 function changeStyleMode(first = false) {
     if (currentMode === 'dark'){
+        document.body.style.transitionDuration = '500ms'
         document.body.style.background = "#ffffff";
         currentMode = "light";
         localStorage.setItem('themeMode', 'light')
