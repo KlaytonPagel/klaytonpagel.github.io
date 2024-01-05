@@ -1,16 +1,12 @@
 let currentMode = 'light';
 let modeButton = document.querySelector('#modeButton')
-let intervalButton = document.querySelector('#intervalButton')
 let grassButton = document.querySelector('#grass')
 let woodButton = document.querySelector('#wood')
 let stoneButton = document.querySelector('#stone')
-let intervalState = 'off'
-let interval;
 let text = document.getElementsByClassName('text')
 let buttons = document.getElementsByClassName('buttons')
 
 modeButton.onclick = changeStyleMode;
-intervalButton.onclick = toggleInterval;
 grassButton.onclick = function () {window.open('https://store.kowantify.com/checkout/add/1');}
 woodButton.onclick = function () {window.open('https://store.kowantify.com/checkout/add/2');}
 stoneButton.onclick = function () {window.open('https://store.kowantify.com/checkout/add/3');}
@@ -37,18 +33,6 @@ function changeStyleMode() {
             buttons[i].style.background = "#ffffff";
             buttons[i].style.color = "#000000";
         }
-    }
-}
-function toggleInterval() {
-    if (intervalState === 'off'){
-        intervalState = 'on'
-        interval = setInterval(changeStyleMode, 50)
-    }
-    else {
-        intervalState = 'off'
-        clearTimeout(interval)
-        currentMode = 'light'
-        changeStyleMode()
     }
 }
 woodButton.addEventListener('mouseover', () => {
