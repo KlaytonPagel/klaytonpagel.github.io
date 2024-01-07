@@ -3,38 +3,43 @@ body {background: #ffffff; transition-duration: 500ms;}
 p.css {font-weight: bold; color: blue}
 a.link {font-size: 30px}
 p.displayName {font-size: 50px; color: chocolate}
-.buttons {background: #646464; color: #ffffff; display: inline; transition-duration: 500ms; margin-bottom: 10px;}
+.buttons {background: #646464; color: #ffffff; display: block; transition-duration: 500ms; margin-bottom: 10px;}
+.serverTypes {display: flex; flex-wrap: wrap}
 .kowantifyButtons {
     border-radius: 20%;
-    background-image: url('https://kowantify.com/wp-content/uploads/2024/01/Kowalski_logo__1_noname-300x225.png');
     background-size: cover;
     width: 300px;
     height: 150px;
-    transition-duration: 500ms;
-    margin-right: 10px}
+    transition: all 500ms;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;}
 
 .kowantifyButtons:hover {border-radius: 20%;  width: 300px; height: 300px;}
-.serverTypes {display: flex}
 
-.minecraftGrass {display: none; height: 100%;}
-.grassHeader {width: 100%; font-size: 30px;}
-.grassText {width: 100%; font-size: 18px; line-height: 24px;}
-
-.minecraftWood {display: none; height: 100%}
-.woodHeader {width: 100%; font-size: 30px;}
-.woodText {width: 100%; font-size: 18px; line-height: 24px;}
-
-.minecraftStone {display: none; height: 100%}
-.stoneHeader {width: 100%; font-size: 30px;}
-.stoneText {width: 100%; font-size: 18px; line-height: 24px;}
+.minecraftText{transition-duration: 500ms; visibility: hidden; opacity: 0; height: 100%; }
+.minecraftHeader {width: 100%; font-size: 30px;}
+.minecraftBody {width: 100%; font-size: 18px; line-height: 24px;}
 
 #grass {background-image: url('images/grass.png');}
 #wood {background-image: url('images/wood.png');}
 #stone {background-image: url('images/stone.png');}
+#iron {background-image: url('images/iron.png');}
+#gold {background-image: url('images/gold.png');}
+#diamond {background-image: url('images/diamond.png');}
+#netherite {background-image: url('images/netherite.png');}
 
 #grass:hover {background-image: url("images/blank.png");}
-#grass:hover > .minecraftGrass {display: block;}
+#grass:hover > .minecraftGrass {visibility: visible; opacity: 1;}
 #wood:hover {background-image: url("images/blank.png");}
-#wood:hover > .minecraftWood {display: block;}
+#wood:hover > .minecraftWood {visibility: visible; opacity: 1;}
 #stone:hover {background-image: url("images/blank.png");}
-#stone:hover > .minecraftStone {display: block;}
+#stone:hover > .minecraftStone {visibility: visible; opacity: 1;}
+#iron:hover {background-image: url("images/blank.png");}
+#iron:hover > .minecraftIron {visibility: visible; opacity: 1;}
+#gold:hover {background-image: url("images/blank.png");}
+#gold:hover > .minecraftGold {visibility: visible; opacity: 1;}
+#diamond:hover {background-image: url("images/blank.png");}
+#diamond:hover > .minecraftDiamond {visibility: visible; opacity: 1;}
+#netherite:hover {background-image: url("images/blank.png");}
+#netherite:hover > .minecraftNetherite {visibility: visible; opacity: 1;}
