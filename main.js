@@ -3,7 +3,7 @@ let testButton = document.querySelector('#testButton')
 let sandButton = document.querySelector('#sandButton')
 let circleButton = document.querySelector('#circleButton')
 
-vorpalButton.onclick = function () {window.open('../vorpal_dive/index.html', '_self');}
-testButton.onclick = function () {window.open('../test_page/index.html', '_self');}
-sandButton.onclick = function () {window.open('../Simulations/Sand_Simulation/index.html', '_self');}
-circleButton.onclick = function () {window.open('../Simulations/Circle_Thing/index.html', '_self');}
+vorpalButton.onclick = function () {window.open('./vorpal_dive/index.html', '_self');}
+testButton.onclick = function () {window.open('./test_page/index.html', '_self');}
+sandButton.onclick = function () {window.open('./Simulations/Sand Simulation/index.html', '_self');}
+circleButton.onclick = function () {window.open('./Simulations/Circle Thing/index.html', '_self');}
