@@ -1,16 +1,42 @@
 // Set up canvas________________________________________________________________________________________________________
-screen = document.getElementById("screen");
-pen = screen.getContext("2d");
+let screen = document.getElementById("screen");
+let sizeSlider = document.getElementById("size")
+let sizeText = document.getElementById("slider_text")
+let pen = screen.getContext("2d");
 let width  = window.innerWidth - 15;
 let height  = window.innerHeight - 20;
 screen.width = width;
 screen.height = height;
 
-const tileSize = 8; // The size of each piece of sand
+getSandSize();
+setSandSize();
+sizeSlider.oninput = setSandSize
+
+const tileSize = parseInt(sizeSlider.value); // The size of each piece of sand
 const rowCount = Math.floor(height / tileSize);
 const colCount = Math.floor(width / tileSize);
 
 let sand = []; // Empty array to hold sand
+
+let mouseHeld = false;
+let mouseX = 0;
+let mouseY = 0;
+
+let sandCoolDown = new Date().getTime();
+let sandCoolDownMilliseconds = 50;
+let sandCanDrop = true;
+
+function getSandSize() {
+    if (localStorage.getItem("sandSize") === null){
+        localStorage.setItem("sandSize", "8");
+    }
+    sizeSlider.value = localStorage.getItem("sandSize");
+}
+
+function setSandSize() {
+    sizeText.innerHTML = "Sand Pixel Size: " + sizeSlider.value;
+    localStorage.setItem("sandSize", sizeSlider.value);
+}
 
 // Draw a gird on the screen____________________________________________________________________________________________
 function drawGrid(){
@@ -23,22 +49,8 @@ function drawGrid(){
     }
 }
 
-// Draw screen boundary_________________________________________________________________________________________________
-function drawBoundary(){
-    // Draw lines around the boundary of the canvas
-    pen.moveTo(0,0);
-    pen.lineTo(width, 0);
-    pen.lineTo(width, height);
-    pen.lineTo(0, height);
-    pen.lineTo(0, 0);
-    pen.stroke();
-
-}
-
 // Add a sand tile to an array__________________________________________________________________________________________
-function addSand(event){
-    mouseX = event.offsetX;
-    mouseY = event.offsetY;
+function addSand(){
     for (let num = 0; num < 4; num++) {
         let posX = sandShower(mouseX);
         let posY = sandShower(mouseY);
@@ -53,7 +65,7 @@ function drawSand(){
     for (let index = 0; index < sand.length; index++) {
         let data = sand[index];
         let speed;
-        if (data[5] < 30){speed = sandSpeed(data)}
+        if (data[5] < 100){speed = sandSpeed(data)}
         else {speed = 0}
         pen.fillRect(data[0], data[1] += speed, data[2], data[3])
         pen.stroke()
@@ -146,9 +158,31 @@ function sandShower(mousePos){
     return (randPos * tileSize) + mousePos
 }
 
+// Cool down for dropping sand__________________________________________________________________________________________
+function dropCoolDown() {
+    if (new Date().getTime() - sandCoolDown > sandCoolDownMilliseconds) {
+        sandCoolDown = new Date().getTime();
+        sandCanDrop = true;
+    }
+}
+
 // Checks for users input_______________________________________________________________________________________________
 function userInput(){
-    screen.onmousedown = addSand
+    screen.onmousedown = function(event) {
+        mouseHeld = true
+        mouseX = event.offsetX;
+        mouseY = event.offsetY;
+        screen.onmousemove = function (event) {
+            mouseX = event.offsetX;
+            mouseY = event.offsetY;
+        }
+    }
+    screen.onmouseup = function() {mouseHeld = false}
+
+    if (mouseHeld === true && sandCanDrop === true){
+        sandCanDrop = false;
+        addSand();
+    }
 }
 
 // The main program loop________________________________________________________________________________________________
@@ -157,8 +191,9 @@ function running(){
     pen.clearRect(0, 0, width, height); // Clear the screen
     userInput()
     drawSand(); // Draws the sand the player places
-    drawBoundary();// Draw a boundary around canvas
     //drawGrid(); // Draw the grid on the screen
+
+    dropCoolDown();
 
     requestAnimationFrame(running)
 }

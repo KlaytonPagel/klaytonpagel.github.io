@@ -1,3 +1,30 @@
 body {
     background-color: #561c8c;
+    margin: 0;
+}
+
+#screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#size {
+    position: absolute;
+    width: 90%;
+    text-align: center;
+}
+
+#slider_text {
+    width: 90%;
+    color: aliceblue;
+    padding-top: 10px;
+    margin: 7px;
+    text-align: center;
+}
+
+.slider_container {
+    position: absolute;
+    width: 10%;
+    background-color: darkgray;
 }
