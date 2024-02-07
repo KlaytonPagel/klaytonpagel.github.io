@@ -1,6 +1,6 @@
 // Set up canvas________________________________________________________________________________________________________
 let screen = document.getElementById("screen");
-let sizeSlider = document.getElementById("size")
+let sizeSlider = document.getElementById("slider")
 let sizeText = document.getElementById("slider_text")
 let pen = screen.getContext("2d");
 let width  = window.innerWidth - 15;
