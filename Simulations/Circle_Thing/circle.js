@@ -206,7 +206,7 @@ class circleThing {
 
         this.findInnerPoints();
 
-        if (this.previousPoints.length > 1){
+        if (this.previousPoints.length > 20){
             this.previousPoints.shift();
         }
 
