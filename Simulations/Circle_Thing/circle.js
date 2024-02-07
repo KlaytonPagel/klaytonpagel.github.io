@@ -14,14 +14,14 @@ class circleThing {
         this.pen = pen;
         this.hue = 0;
 
-        this.outerRadius = width / 5;
+        this.outerRadius = width / 3;
         this.outerX = width / 2;
         this.outerY = height / 2;
         this.outerPoints = [];
         this.findOuterPoints();
 
         this.innerRadius = this.outerRadius / 10;
-        this.innerX = width / 2 - 200;
+        this.innerX = width / 2 - this.outerRadius / 1.5;
         this.innerY = height / 2
         this.innerDirectionY = 1;
         this.innerDirectionX = 0;
