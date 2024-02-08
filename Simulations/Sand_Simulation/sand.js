@@ -26,6 +26,8 @@ let sandCoolDown = new Date().getTime();
 let sandCoolDownMilliseconds = 50;
 let sandCanDrop = true;
 
+let hue = 240;
+
 function getSandSize() {
     if (localStorage.getItem("sandSize") === null){
         localStorage.setItem("sandSize", "8");
@@ -62,13 +64,22 @@ function addSand(){
 
 // Draw all sand________________________________________________________________________________________________________
 function drawSand(){
+    updateColor()
     for (let index = 0; index < sand.length; index++) {
         let data = sand[index];
         let speed;
         if (data[5] < 100){speed = sandSpeed(data)}
         else {speed = 0}
+        pen.fillStyle = "hsl(" + hue + ", 80%, 50%)";
         pen.fillRect(data[0], data[1] += speed, data[2], data[3])
         pen.stroke()
+    }
+}
+
+function updateColor() {
+    hue++
+    if (hue > 360) {
+        hue = 0
     }
 }
 

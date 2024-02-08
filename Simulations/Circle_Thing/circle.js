@@ -32,9 +32,28 @@ class circleThing {
 
         this.currentVelocity = 0;
 
+        this.collisions = 0;
+
+        this.audioFiles = [
+            "Audio/Note1.wav",
+            "Audio/Note2.wav",
+            "Audio/Note3.wav",
+            "Audio/Note4.wav",
+            "Audio/Note5.wav",
+            "Audio/Note6.wav",
+            "Audio/Note7.wav",
+            "Audio/Note8.wav",
+            "Audio/Note9.wav",
+            "Audio/Note10.wav",
+            "Audio/Note11.wav",
+            "Audio/Note12.wav",
+        ]
+
+        this.currentAudio = 0
+
         console.log("created circle thing")
 
-        this.collisions = 0;
+
     }
 
     // Sets the size of the outer circle based on the smallest axis_____________________________________________________
@@ -193,6 +212,16 @@ class circleThing {
         this.innerY = this.previousPoints[this.previousPoints.length - 1][1]
 
         this.collisions ++
+
+        new Audio(this.audioFiles[this.currentAudio]).play();
+        this.updateAudio();
+    }
+
+    updateAudio() {
+        this.currentAudio++;
+        if (this.currentAudio > this.audioFiles.length -1){
+            this.currentAudio = 0;
+        }
     }
 
     move() {
