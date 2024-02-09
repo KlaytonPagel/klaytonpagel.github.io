@@ -191,6 +191,18 @@ function userInput(){
     }
     screen.onmouseup = function() {mouseHeld = false}
 
+    screen.ontouchstart = function(event) {
+        console.log(event)
+        mouseHeld = true
+        mouseX = event.offsetX;
+        mouseY = event.offsetY;
+        screen.ontouchmove = function (event) {
+            mouseX = event.offsetX;
+            mouseY = event.offsetY;
+        }
+    }
+    screen.ontouchend = function() {mouseHeld = false}
+
     if (mouseHeld === true && sandCanDrop === true){
         sandCanDrop = false;
         addSand();
