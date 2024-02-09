@@ -70,7 +70,8 @@ function drawSand(){
         let speed;
         if (data[5] < 100){speed = sandSpeed(data)}
         else {speed = 0}
-        pen.fillStyle = "hsl(" + hue + ", 80%, 50%)";
+        //pen.fillStyle = "hsl(" + hue + ", 80%, 50%)";
+        pen.fillStyle = "#96811c"
         pen.fillRect(data[0], data[1] += speed, data[2], data[3])
         pen.stroke()
     }
