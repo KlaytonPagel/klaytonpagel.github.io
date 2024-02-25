@@ -1,0 +1,17 @@
+html {
+    background-color: black;
+}
+
+#bigA {
+    position: absolute;
+    background: transparent;
+    border-radius: 30%;
+    transform: rotate(-40deg);
+    animation: infinite move linear forwards 1s ;
+}
+
+@keyframes move {
+    50% {
+        transform: rotate(40deg);
+    }
+}
