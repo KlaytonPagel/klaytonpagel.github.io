@@ -6,6 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bookmarklet</title>
+    <style>
+        div, span, a, p {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,13 +29,29 @@ document.body.appendChild(script);})();
 <!--Runs the code directly from the Href, Don't Forget ";"------------------------------------------------------------->
 <a href="javascript:
 (function (){
-let paragraphs = document.getElementsByTagName('body');
-for (let index = 0; index < paragraphs.length; index++){paragraphs[index].style.backgroundColor = '#424242';
-alert('changed');
-}
+    const divs = document.getElementsByTagName('div');
+    const ps = document.getElementsByTagName('p');
+    const spans = document.getElementsByTagName('spans');
+    const as = document.getElementsByTagName('a');
+
+    const elements = [divs, ps, spans, as];
+
+    for (let item = 0; item < elements.length; item++) {
+        let element = elements[item];
+        for (let index = 0; index < element.length; index++) {
+            element[index].style.backgroundColor ='#424242';
+            element[index].style.color = '#d0d0d0';
+        }
+    }
+    alert('changed');
 })();
 ">Bookmarklet 2
 </a>
+
+<div></div>
+<p></p>
+<a href=""></a>
+<span></span>
 
 </body>
 </html>
