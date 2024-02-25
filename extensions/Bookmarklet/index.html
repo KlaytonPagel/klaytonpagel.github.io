@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bookmarklet</title>
+</head>
+<body>
+
+<!--Cals to Java script File------------------------------------------------------------------------------------------->
+<a href="javascript:
+(function () {let script = document.createElement('script');
+script.src = 'http://localhost:63342/extensions/extensions/Bookmarklet/bookmarklet.js';
+document.body.appendChild(script);})();
+">Bookmarklet
+</a>
+
+<br>
+
+<!--Runs the code directly from the Href, Don't Forget ";"------------------------------------------------------------->
+<a href="javascript:
+(function (){
+let paragraphs = document.getElementsByTagName('body');
+for (let index = 0; index < paragraphs.length; index++){paragraphs[index].style.backgroundColor = '#424242';
+alert('changed');
+}
+})();
+">Bookmarklet 2
+</a>
+
+</body>
+</html>

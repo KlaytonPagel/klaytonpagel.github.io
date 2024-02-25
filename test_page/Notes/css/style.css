@@ -1,0 +1,294 @@
+
+/*Comments*/
+
+
+/*Selectors-----------------------------------------------------------------------------------------------------------*/
+
+/*selector is used to select the element you are styling*/
+body {
+    /*inside the curly brace you have the property you set: the value you set it to*/
+    background: #8c8686;
+
+}
+
+/*element selectors use just the element type and is applied to all instances of that element*/
+h1 {
+
+}
+
+/*class selectors use a .class-name to reference, this effects all elements with that class name*/
+.header {
+    font-size: 32px;
+    text-decoration-line: underline;
+}
+
+/*ID selectors use #element-id to reference, id is used to reference a single element*/
+#NotesHeader {
+
+}
+
+/*the star is a selector that applies to everything on the page*/
+* {
+
+}
+
+/*selectors can be combined to reference only elements that contain all referenced selectors*/
+.header#NotesHeader {
+    font-size: 38px;
+    text-decoration-line: none;
+    color: aqua;
+}
+
+/*Colors--------------------------------------------------------------------------------------------------------------*/
+
+/*rgb defines a color using (red,green,blue) color values*/
+.rgb {
+    color: rgb(255,255,255);
+}
+
+/*#ffffff is a hexadecimal representation of a color*/
+.hex {
+    color: #2c549d;
+}
+
+/*hsl set uses (hue, saturation, light) values*/
+.hsl {
+    color: hsl(240, 100%, 50%);
+}
+
+/*hsla uses (hue, saturation, light, alpha) values*/
+.hsla {
+    color: hsla(120, 100%, 50%, 100%);
+}
+
+/*Backgrounds and borders---------------------------------------------------------------------------------------------*/
+
+.borderBackground {
+    font-size: 24px;
+}
+
+/*Backgrounds can be set to images or colors*/
+/*You can set the size*/
+.background{
+
+    width: fit-content; /*adjusts the background to fit whats in it*/
+    background-color: #2c549d; /*sets a color for the background*/
+}
+
+.dot-border{
+    width: fit-content;
+    border-style: dotted; /*sets the type of border*/
+    border-radius: 10px; /*curves the corners of the border*/
+}
+
+.solid-border{
+    width: fit-content;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 10px; /*Adjusts the thickness of the border*/
+}
+.double-border{
+    width: fit-content;
+    border-style: double;
+    border-radius: 10px;
+    border-width: 10px 5px 15px 1px; /*sets the thickness of the border per side*/
+}
+.inset-border{
+    width: fit-content;
+    border-style: inset;
+    border-radius: 10px;
+    border-color: brown; /*sets the color of the border*/
+}
+.outset-border{
+    width: fit-content;
+    border-style: outset;
+    border-radius: 10px;
+    border-top-style: dashed; /*dashed style on just the top side of the border*/
+}
+
+/*Positioning---------------------------------------------------------------------------------------------------------*/
+
+.static { /*Static position is default and flows with HTML*/
+    background-color: blue;
+    position: static; /*Set position with the position key word*/
+    width: 100px; /*Change with and height using px for pixels*/
+    height: 100px;
+}
+
+.absolute { /*Absolute is removed from flow of HTML and is placed at position*/
+    background-color: #66ff00;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0px; /*set position with top, left, right, or bottom use pc for pixels or % for a percent of parent*/
+    left: 50%;
+}
+.parent { /* a parent class for the relative class below*/
+    background-color: aqua;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 400px;
+    right: 100px;
+}
+.relative { /*relative is positioned at the points relative to it's parent so long as it's parent isn't static*/
+    background-color: #ff0015;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+}
+.fixed { /*Fixed is like absolute but not removed from the HTML flow*/
+    background-color: #ffc400;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 0px;
+    right: 0px;
+}
+.sticky { /*SSticky sticks to your screen when you scroll past it*/
+    background-color: #c800ff;
+    position: sticky;
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    transform: translateX(500px);
+}
+/*Pseudo classes------------------------------------------------------------------------------------------------------*/
+
+/*Pseudo classes are a state that effects the element
+for example is your are clicking on something or hovering over it*/
+
+.button {
+    font-size: 18px;
+    width: 200px;
+    height: 100px;
+    background-color: #af7373;
+    border-radius: 25px;
+    border-style: inset;
+}
+/*effect when you hover over the element*/
+.button:hover {
+    background-color: #ffc400;
+}
+
+/*effect when the element is bring clicked on*/
+.button:active{
+    background-color: saddlebrown;
+}
+
+.focus {
+    margin: 10px;
+    width: 200px;
+    height: 25px;
+}
+
+/*effect when the input is selected*/
+.focus:focus {
+    background-color: #c800ff;
+
+}
+
+/*Effect foe when the button is disabled*/
+.disabled:disabled {
+    background-color: burlywood;
+}
+
+/*Transitions---------------------------------------------------------------------------------------------------------*/
+/*Transitions are used to provide basic animations between states
+You can set a delay then set a different state with a pseudo class
+it will change to that state over the duration time*/
+
+.transbuttons {
+    font-size: 18px;
+    width: 200px;
+    height: 100px;
+    border-radius: 25px;
+    transition-duration: 500ms; /* set duration time*/
+    transition-delay: 100ms; /*Sets a delay to start the transition*/
+    transition-timing-function: ease; /*Sets the timing of the transition*/
+}
+
+.transition1:hover { /*change the background color and width when hovered*/
+    background-color: #ff0015;
+    width: 300px;
+}
+
+.transition2:active { /*change background color and rotate when clicked*/
+    background-color: #2c549d;
+    rotate: 360deg;
+}
+
+.transition3:focus { /*change background color and move entry box when focused*/
+    background-color: #8c8686;
+    translate: 50px;
+}
+
+/*Animations----------------------------------------------------------------------------------------------------------*/
+/*Animations are ways tp add more advanced animations to elements*/
+
+
+/*To make an animation you declare it with @keyframes then give it a name*/
+@keyframes slide {
+    from { /*You can set a starting point adding any attributes to it*/
+        transform: translateX(700px);
+    }
+
+    to { /*to is the ending point, the state the element will be in at the end of the animation*/
+        transform: translateX(0px);
+    }
+}
+
+/*You can set percentages to set different states at different percentages of the animation*/
+@keyframes slide2 {
+    0%, 100% {
+        background-color: #ff0015;
+        box-shadow: 0px 0px 30px #ff0015;
+    }
+    20% {
+        background-color: #ff9a00;
+        box-shadow: 0px 0px 30px #ff9a00;
+    }
+    40% {
+        background-color: #ffc400;
+        box-shadow: 0px 0px 30px #ffc400;
+    }
+    60% {
+        background-color: #66ff00;
+        box-shadow: 0px 0px 30px #66ff00;
+    }
+    80% {
+        background-color: #2c549d;
+        box-shadow: 0px 0px 30px #2c549d;
+    }
+}
+
+.animation1 {
+    animation-name: slide; /*Declare name of the animation*/
+    animation-duration: 1s; /*How long the animation will last*/
+    animation-timing-function: ease-in; /*The timing style of the animation*/
+    animation-delay: 0s; /*How long it will wait to run the animation*/
+    animation-iteration-count: 1; /*how many times it will run the animation*/
+    animation-direction: normal; /*what frame the animation will start on*/
+
+    animation: slide 3s ease-in 0s 1 normal; /*combine all above lines into one line*/
+}
+
+.animation2 {
+    animation: slide2 4s infinite; /*animation runs infinitely*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "ClipBoard",
+  "version": "1.0.0",
+  "description": "ClipBoard Copier",
+  "icons": {},
+  "action": {"default_popup": "index.html"}
+}
