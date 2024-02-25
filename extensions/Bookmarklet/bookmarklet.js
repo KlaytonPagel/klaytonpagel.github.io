@@ -2,7 +2,7 @@
     // Set variables for all elements you want to change
     const divs = document.getElementsByTagName('div');
     const ps = document.getElementsByTagName('p');
-    const spans = document.getElementsByTagName('spans');
+    const spans = document.getElementsByTagName('span');
     const as = document.getElementsByTagName('a');
 
     // Store all elements in an array
