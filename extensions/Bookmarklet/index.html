@@ -6,18 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bookmarklet</title>
+
     <style>
-        div, span, a, p {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
+        #Bookmarklet1 {
+            visibility: hidden;
+        }
+
+        #Bookmarklet2 {
+            font-size: 30px;
         }
     </style>
+
 </head>
 <body>
-
+<!--Tells user to drag the bookmarklet to their bookmark bar----------------------------------------------------------->
+<p>Drag to your bookmark bar</p>
 <!--Cals to Java script File------------------------------------------------------------------------------------------->
-<a href="javascript:
+<a id="Bookmarklet1" href="javascript:
 (function () {let script = document.createElement('script');
 script.src = 'http://localhost:63342/extensions/extensions/Bookmarklet/bookmarklet.js';
 document.body.appendChild(script);})();
@@ -27,31 +32,29 @@ document.body.appendChild(script);})();
 <br>
 
 <!--Runs the code directly from the Href, Don't Forget ";"------------------------------------------------------------->
-<a href="javascript:
-(function (){
-    const divs = document.getElementsByTagName('div');
-    const ps = document.getElementsByTagName('p');
-    const spans = document.getElementsByTagName('span');
-    const as = document.getElementsByTagName('a');
+<div class="container"></div>
+    <a id="Bookmarklet2" href="javascript:
+    (function (){
+        const divs = document.getElementsByTagName('div');
+        const ps = document.getElementsByTagName('p');
+        const spans = document.getElementsByTagName('span');
+        const as = document.getElementsByTagName('a');
+        const iframe = document.getElementsByTagName('iframe');
+        const x_tab_inner = document.getElementsByClassName('x-tab-inner');
+        const x_tab_inner_default = document.getElementsByClassName('x-tab-inner-default');
 
-    const elements = [divs, ps, spans, as];
+        const elements = [divs, ps, spans, as, x_tab_inner, x_tab_inner_default, iframe];
 
-    for (let item = 0; item < elements.length; item++) {
-        let element = elements[item];
-        for (let index = 0; index < element.length; index++) {
-            element[index].style.backgroundColor ='#424242';
-            element[index].style.color = '#d0d0d0';
+        for (let item = 0; item < elements.length; item++) {
+            let element = elements[item];
+            for (let index = 0; index < element.length; index++) {
+                element[index].style.backgroundColor ='#424242';
+                element[index].style.color = '#d0d0d0';
+            }
         }
-    }
-    alert('changed');
-})();
-">Bookmarklet 2
-</a>
-
-<div></div>
-<p></p>
-<a href=""></a>
-<span></span>
+    })();
+    ">Dark
+    </a>
 
 </body>
 </html>
