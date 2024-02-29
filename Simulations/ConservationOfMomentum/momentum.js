@@ -16,13 +16,12 @@ const b = 1;
 const objects = [];
 
 class Circle {
-    constructor(context, x, y, speed, radius, color) {
+    constructor(context, x, y, speed, radius) {
         this.pen = context;
         this.radius = radius
         this.x = x;
         this.y = y;
-        this.color = color;
-        this.currentColor = color;
+        this.color = 1;
         this.velocityX = speed;
         this.velocityY = speed;
 
@@ -32,7 +31,7 @@ class Circle {
     draw() {
         this.pen.beginPath();
         this.pen.lineWidth = 3;
-        this.pen.fillStyle = this.currentColor;
+        this.pen.fillStyle = "hsl(" + this.color + ", 100%, 50%)";
         this.pen.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         this.pen.fill();
         this.pen.stroke();
@@ -80,6 +79,11 @@ class Circle {
         object.velocityY = speed * normalVector.y;
         this.velocityX = speed * -normalVector.x;
         this.velocityY = speed * -normalVector.y;
+        this.color += 1;
+        if (this.color > 360) {
+            this.color = 1;
+        }
+
     }
 
     move() {
@@ -103,7 +107,7 @@ for (let x = 1; x <= xSpots; x++) {
     for (let y = 1; y <= ySpots; y++) {
         let chance = Math.random()
         if (chance > .5) {
-            objects.push(new Circle(pen, x * size, y * size, 1, size / 2, "yellow"));
+            objects.push(new Circle(pen, x * size, y * size, 1, size / 2));
         }
     }
 }
