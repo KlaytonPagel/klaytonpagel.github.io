@@ -24,6 +24,7 @@ class Circle {
         this.color = 1;
         this.velocityX = speed;
         this.velocityY = speed;
+        this.speed = speed;
 
         this.colliding = false;
     }
@@ -74,11 +75,10 @@ class Circle {
         let normalVector = {x: collisionVector.x / distance, y: collisionVector.y / distance};
         let relativeVelocity = {x: object.velocityX-this.velocityX, y: object.velocityY-this.velocityY};
         let speed = relativeVelocity.x * normalVector.x + relativeVelocity.y * normalVector.y;
-        speed = 1
-        object.velocityX = speed * normalVector.x;
-        object.velocityY = speed * normalVector.y;
-        this.velocityX = speed * -normalVector.x;
-        this.velocityY = speed * -normalVector.y;
+        object.velocityX = this.speed * normalVector.x;
+        object.velocityY = this.speed * normalVector.y;
+        this.velocityX = this.speed * -normalVector.x;
+        this.velocityY = this.speed * -normalVector.y;
         this.color += 1;
         if (this.color > 360) {
             this.color = 1;
@@ -99,15 +99,15 @@ class Circle {
         this.draw();
     }
 }
-
-let size = 50
-let xSpots = Math.floor(width / size);
-let ySpots = Math.floor(height / size);
+let maxSize = 100;
+let xSpots = Math.floor(width / maxSize);
+let ySpots = Math.floor(height / maxSize);
 for (let x = 1; x <= xSpots; x++) {
     for (let y = 1; y <= ySpots; y++) {
+        let size = 100 * Math.random();
         let chance = Math.random()
-        if (chance > .5) {
-            objects.push(new Circle(pen, x * size, y * size, 1, size / 2));
+        if (chance > 0) {
+                objects.push(new Circle(pen, x * maxSize - maxSize/2, y * maxSize - maxSize/2, Math.random() + .5, size / 2));
         }
     }
 }
